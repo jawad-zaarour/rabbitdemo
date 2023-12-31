@@ -1,0 +1,10 @@
+FROM rabbitmq:management
+
+ENV RABBITMQ_DEFAULT_USER=admin
+ENV RABBITMQ_DEFAULT_PASS=admin
+
+COPY rabbit/rabbitmq.conf /etc/rabbitmq/rabbitmq.bak
+COPY rabbit/rabbitmq-env.conf /etc/rabbitmq
+
+COPY rabbit/.erlang.cookie /var/lib/rabbitmq/
+RUN chmod 600 /var/lib/rabbitmq/.erlang.cookie

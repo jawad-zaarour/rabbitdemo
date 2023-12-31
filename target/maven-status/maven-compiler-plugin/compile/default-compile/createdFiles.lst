@@ -1,0 +1,17 @@
+com\jz\rabbitmqdemo\model\MessageDTO$MessageDTOBuilder.class
+com\jz\rabbitmqdemo\config\ApplicationProperties$RabbitMqProperties.class
+com\jz\rabbitmqdemo\service\MessageService.class
+com\jz\rabbitmqdemo\exception\ExceptionDetails.class
+com\jz\rabbitmqdemo\exception\QueueNotFoundException.class
+com\jz\rabbitmqdemo\service\ListenerQueueService.class
+com\jz\rabbitmqdemo\exception\GlobalHandlerException.class
+com\jz\rabbitmqdemo\exception\QueuingException.class
+com\jz\rabbitmqdemo\utils\Utils.class
+com\jz\rabbitmqdemo\config\RabbitMQConfiguration.class
+com\jz\rabbitmqdemo\model\MessageDTO.class
+com\jz\rabbitmqdemo\controller\ListenerController.class
+com\jz\rabbitmqdemo\service\ConsumerService.class
+com\jz\rabbitmqdemo\config\ApplicationProperties.class
+com\jz\rabbitmqdemo\controller\MessageController.class
+com\jz\rabbitmqdemo\invariant\RabbitConstants.class
+com\jz\rabbitmqdemo\RabbitmqDemoApplication.class

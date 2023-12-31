@@ -1,6 +1,6 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:17-jre-alpine
 
-MAINTAINER alpha.com
+MAINTAINER ZJ
 
 ARG JAR_FILE=target/rabbitmqdemo-0.0.1-SNAPSHOT.jar
 

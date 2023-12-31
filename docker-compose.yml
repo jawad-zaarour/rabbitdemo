@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: spring-app-image
+    ports:
+      - "8585:8585"
+      - "9001:9001"
+    networks:
+      - rabbitmq-net
+    depends_on:
+      - rabbit1
+      - rabbit2
+      - rabbit3
+    environment:
+      RABBITMQ_NODES: ${RABBITMQ_NODES}
+      RABBITMQ_USERNAME: ${RABBITMQ_USERNAME}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
+
+  rabbit1:
+    build:
+      context: .
+      dockerfile: rabbit/rabbitmq-docker-file
+    image: rabbitmq-image-1
+    hostname: rabbit1
+    networks:
+      - rabbitmq-net
+    ports:
+      - "15682:15672"
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: rabbitmq-1-volume
+        target: /var/lib/rabbitmq
+
+  rabbit2:
+    build:
+      context: .
+      dockerfile: rabbit/rabbitmq-docker-file
+    image: rabbitmq-image-2
+    hostname: rabbit2
+    networks:
+      - rabbitmq-net
+    ports:
+      - "15683:15672"
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: rabbitmq-2-volume
+        target: /var/lib/rabbitmq
+
+  rabbit3:
+    build:
+      context: .
+      dockerfile: rabbit/rabbitmq-docker-file
+    image: rabbitmq-image-3
+    hostname: rabbit3
+    networks:
+      - rabbitmq-net
+    ports:
+      - "15684:15672"
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: rabbitmq-3-volume
+        target: /var/lib/rabbitmq
+
+networks:
+  rabbitmq-net: {}
+
+volumes:
+  rabbitmq-1-volume:
+  rabbitmq-2-volume:
+  rabbitmq-3-volume:
